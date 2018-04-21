@@ -1,5 +1,27 @@
-<ion-tabs>
+<!-- <ion-tabs>
   <ion-tab [root]="tab1Root" tabTitle="Home" tabIcon="home"></ion-tab>
   <ion-tab [root]="tab2Root" tabTitle="About" tabIcon="information-circle"></ion-tab>
   <ion-tab [root]="tab3Root" tabTitle="Contact" tabIcon="contacts"></ion-tab>
-</ion-tabs>
+</ion-tabs> -->
+
+<ion-header no-shadow no-border>
+  <ion-navbar color="main-color">
+    <button ion-button menuToggle color="primary">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Deplaces</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content >
+<super-tabs id="mainTabs"  [config]="{ sideMenu: 'left' }" scrollTabs toolbarColor="light" toolbarBackground="main-color" indicatorColor="indicator" badgeColor="#76FF03" >
+   
+  <super-tab [swipeBackEnabled]="false" [root]="restaurant" title="Restaurants"></super-tab>
+  <super-tab [root]="supermarket" title="SuperMarkets" ></super-tab>
+    <super-tab [root]="hospital" title="Hospitals"></super-tab>
+    <super-tab [root]="pharmacy" title="Pharmacies" ></super-tab>
+    <super-tab [root]="church" title="Church" ></super-tab>
+    <super-tab [root]="school" title="Schools" ></super-tab>
+    <super-tab [root]="gas_station" title="Banks"></super-tab>
+  </super-tabs>
+
+</ion-content>

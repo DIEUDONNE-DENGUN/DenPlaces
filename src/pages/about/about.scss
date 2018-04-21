@@ -1,3 +1,31 @@
 page-about {
 
+    .s{
+        margin-right:5px;
+        margin-left:5px;
+        padding:5px;
+      }
+
+      .about-card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        max-width: 500px;
+        // height:200px;
+        margin-right:5px;
+        margin-left:5px;
+        text-align: center;
+    }
+    
+      .title{
+          color:map-get($colors, main-color)
+      }
+
+      .about-image{
+        padding:10px; 
+        border-radius: 10px;
+        height:175px;
+        width: 350px;
+        max-width:350px;
+      }
+
+     
 }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, IonicPage } from 'ionic-angular';
 
+@IonicPage()
 @Component({
   selector: 'page-about',
   templateUrl: 'about.html'
@@ -11,4 +12,14 @@ export class AboutPage {
 
   }
 
+   /*
+  @Author:Dieudonne Dengun
+  @Date:26/03/2018
+  @Description:Show author's social media page in a browser
+*/
+ showAuthorSocialMediaPage(url){
+
+  //open url from the browser's service
+    
+}
 }

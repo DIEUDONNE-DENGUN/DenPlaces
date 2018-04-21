@@ -1,1 +1,18 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<!-- <ion-nav [root]="rootPage"></ion-nav> -->
+
+<ion-menu [content]="content" color="main-color">
+    <ion-content class="menu-header">
+      
+        <div>
+           <img class="sidemenu-image" src="assets/imgs/sidemenu.png"/>
+        </div>
+        <hr/>
+        <ion-list class="menu-header">
+        
+            <button class="menu-header" ion-item menuClose *ngFor="let item of menuItems" (click)="openPage(item)">{{ item.name }}</button>
+
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-nav [root]="rootPage" [rootParams]="rootParams"  #content></ion-nav>
+

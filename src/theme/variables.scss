@@ -38,7 +38,12 @@ $colors: (
   secondary:  #32db64,
   danger:     #f53d3d,
   light:      #f4f4f4,
-  dark:       #222
+  dark:       #222,
+  main-color: #E91E63,
+  second-color:#C2185B,
+  indicator:     #488aff,
+  
+
 );
 
 
@@ -53,7 +58,10 @@ $colors: (
 // --------------------------------------------------
 // Material Design only Sass variables can go here
 
-
+$segment-button-md-text-color-activated:#f4f4f4;
+$segment-button-md-border-color-activated:#9C27B0;
+$checkbox-md-icon-size:18px;
+$alert-md-title-font-size:14px;
 
 
 // App Windows Variables

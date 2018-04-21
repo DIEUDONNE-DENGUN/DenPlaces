@@ -1,11 +1,66 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      About
-    </ion-title>
+
+  <ion-navbar color="main-color">
+    <ion-title>About Denplaces</ion-title>
   </ion-navbar>
+
 </ion-header>
 
-<ion-content padding>
+<ion-content>
+
+  <div>
+
+    <ion-card class="about-card">
+
+      <ion-item>
+        <ion-avatar item-left>
+          <img src="assets/imgs/sidemenu_2.png" />
+        </ion-avatar>
+        <h6 class="title">DenPlaces</h6>
+        <br/>
+
+        <p text-wrap>Developed by Dieudonne Dengun</p>
+        <small>@2018</small>
+        <i>Version: 1.0.0</i>
+      </ion-item>
+
+      <img class="about-image" src="assets/imgs/sidemenu.png" />
+
+      <ion-card-content>
+
+        <div>
+          DenPlaces is an Ionic 3 Mobile App which provides nearby services to a user current location using Google maps. It is free
+          and open for anyone to used and modify
+
+        </div>
+
+      </ion-card-content>
+      <h6 class="title" text-center>Hit Me Up on: </h6>
+      <ion-row>
+
+        <ion-col col-4>
+          <button ion-button icon-left clear small class="about" (click)="showAuthorSocialMediaPage('https://www.facebook.com/DIEUDONNNEDENGUN')">
+            <ion-icon name="logo-facebook"></ion-icon>
+            <div>Facebook</div>
+          </button>
+        </ion-col>
+        <ion-col col-4>
+          <button ion-button icon-left clear small class="about" (click)="showAuthorSocialMediaPage('https://twitter.com/DIEUDONNE_DENGU')">
+            <ion-icon name="logo-twitter"></ion-icon>
+            &nbsp;
+            <div>&nbsp;Twitter</div>
+          </button>
+        </ion-col>
+        <ion-col col-4>
+          <button ion-button icon-left clear small class="about" (click)="showAuthorSocialMediaPage('https://www.linkedin.com/in/takougang-dieudonne/')">
+            <ion-icon name="logo-linkedin"></ion-icon>
+            &nbsp;
+            <div>&nbsp;LinkedIn</div>
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+
+  </div>
 
 </ion-content>

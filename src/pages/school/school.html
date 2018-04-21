@@ -1,0 +1,64 @@
+
+  <ion-content>
+
+    <ion-segment [(ngModel)]="place_view_option" color="" (ionChange)="segmentChanged($event)" >
+  
+      <ion-segment-button value="map" class="segment">
+        <ion-icon name="map"></ion-icon>
+        Map View
+      </ion-segment-button>
+  
+      <!-- Contact Tab for the student contact information -->
+      <ion-segment-button value="list">
+        <ion-icon name="list"></ion-icon>
+        List View
+      </ion-segment-button>
+  
+    </ion-segment>
+   
+  
+   
+       <h3 class="segment-title" padding [style.display]="show_map ? 'block' : 'none'" > Schools and training centers around</h3>
+      <!-- Display Map here  -->
+      <!-- <p>Hello Dengun</p> -->
+      <div #map id="map" [style.display]="show_map ? 'block' : 'none'" ></div>
+    
+  <!-- Build a switch to check the three segment click -->
+  <div>
+    
+    <!-- This means, the student has clicked on the Map Tab Segment -->
+    <div  [style.display]="place_view_option == 'map' ? 'block' : 'none'"  class="segment-item">
+     
+    </div>
+  
+    <!-- This means, the student has clicked on List View Tab Segment -->
+    <div [style.display]="place_view_option == 'list' ? 'block' : 'none'"  class="segment-item">
+      <div class="segment-item">
+  
+        <h3 class="segment-title" padding>
+          Schools and training centers around - List View
+        </h3>
+  
+        <!-- Display a list of nearby services to the user -->
+       <ion-list *ngIf="places" >
+        
+          <ion-item *ngFor="let place of places; let j=index">
+              <ion-thumbnail item-start>
+                <img src="{{place.place_url}}">
+              </ion-thumbnail>
+              <h3 class="segment-title">{{place.place_name}}</h3>
+              <p text-wrap>About <b>{{place.place_distance}}</b> metres from your current location</p>
+            <small><i>{{place.place_vicinity}}</i></small>
+              <button ion-button clear item-end>
+                  <ion-icon name="pin"></ion-icon>
+              </button>
+            </ion-item>
+        </ion-list>
+  
+      </div>
+    </div>
+  </div>
+  
+   
+  </ion-content>
+  
