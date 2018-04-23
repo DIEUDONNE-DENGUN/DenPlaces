@@ -30,6 +30,7 @@ Getting Started
    ![alt text](https://github.com/DIEUDONNE-DENGUN/Denplaces/blob/master/home-den-list.PNG?raw=true)
 
    ![alt text](https://github.com/DIEUDONNE-DENGUN/Denplaces/blob/master/hospital-den.PNG?raw=true)
+   ![alt text](https://github.com/DIEUDONNE-DENGUN/Denplaces/blob/master/school-den.PNG?raw=true)
   
 
 Add additional notes about how to deploy this on a live system
