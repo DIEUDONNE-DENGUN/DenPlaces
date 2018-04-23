@@ -27,9 +27,9 @@ Getting Started
  Project Snapshots
 
    ![alt text](https://github.com/DIEUDONNE-DENGUN/Denplaces/blob/master/home-denplace.PNG?raw=true)
-   ![alt text](https://github.com/DIEUDONNE-DENGUN/LivesNews-App/blob/master/home-den-list.PNG?raw=true)
+   ![alt text](https://github.com/DIEUDONNE-DENGUN/Denplaces/blob/master/home-den-list.PNG?raw=true)
 
-   ![alt text](https://github.com/DIEUDONNE-DENGUN/LivesNews-App/blob/master/hospital-den.PNG?raw=true)
+   ![alt text](https://github.com/DIEUDONNE-DENGUN/Denplaces/blob/master/hospital-den.PNG?raw=true)
   
 
 Add additional notes about how to deploy this on a live system
