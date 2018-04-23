@@ -24,7 +24,7 @@ export class SupermarketPage {
   map: any;
   mapInitialised: boolean = false;
   current_location: any;
-  apiKey: string = "AIzaSyAoDJ4s8Sf-IdZrNNK58PTeTpmSr7KYAjw";
+  apiKey: string = "";
   place_view_option: string ="map";
   places: any; //Hold an array of nearby services to the user current direction
   current_location_object: any;
