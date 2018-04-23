@@ -5,9 +5,9 @@ Project Title
 
 About Denplaces
 
-      DenPlaces is an Ionic 3 Mobile App which provides nearby services to a user current location using Google maps. 
-      Services like nearby Restaurants,Supermarkets,Hospitals,Pharmacies,Churches and Banks are currently implemented and working.
-      It is free and open for anyone to used and modify
+     DenPlaces is an Ionic 3 mobile hybrid app to provide the nearest services to users using google maps.
+     It provides distance and direction to get to a destination service.Currently, it supports, nearby restaurants, supermarkets,             pharmacies, hospitals, schools, church and banks.It provide automated display of the nearby services using Google Maps.
+     It is free and open for anyone to used and modify
  
 
 Getting Started
