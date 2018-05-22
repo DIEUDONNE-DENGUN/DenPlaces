@@ -1,0 +1,124 @@
+<ion-header>
+
+  <ion-navbar color="main-color">
+    <ion-title>
+      <small text-wrap>{{place.place_name}} </small>
+      <br/>
+      <small>
+        <i text-wrap>About {{place.place_distance}}m from here</i>
+      </small>
+    </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+  <!-- Place photos or map depending on wether there are/is photos -->
+
+  <div #map [style.display]="show_place_map ? 'block' : 'none'" class="place-map">
+
+  </div>
+  <!-- This means selected place got no picture at the moment -->
+  <div [style.display]="show_place_photos ? 'block' : 'none'">
+    <div class="slider-banner">
+      <ion-slides no-margin pager="true" loop="true" *ngIf="place_photos" slidesPerView="1" autoplay="2000" speed="500">
+
+        <ion-slide *ngFor=" let photo of place_photos; let j=index" class="slide" (click)="showImages(place)">
+          <img class="slider-image" no-padding src="{{photo.link}}" />
+        </ion-slide>
+
+      </ion-slides>
+    </div>
+  </div>
+
+  <!-- Place details secion -->
+
+  <div class="ion-card">
+    <!-- Place head section -->
+    <ion-item class="item-selected">
+      <ion-avatar item-left>
+        <img class="footer-image" src="{{place.place_url}}">
+      </ion-avatar>
+      <h3 class="segment-title" text-wrap>{{place.place_name}}</h3>
+
+      <rating *ngIf="rating" [(ngModel)]="rating" 
+       readOnly="true" max="5" 
+       emptyStarIconName="star-outline"
+       halfStarIconName="star-half"
+        starIconName="star" 
+        nullable="true">
+      </rating>
+      <small>
+        <i text-wrap *ngIf="rating">{{rating}} rating</i>
+      </small>
+    </ion-item>
+
+    <br/>
+    <!-- List of possible details about the place -->
+    <ion-list>
+
+      <ion-item>
+        <ion-icon class="item-color" name="locate" item-start></ion-icon>
+        {{place.place_address}}
+      </ion-item>
+
+      <ion-item *ngIf="place.place_formatted_number">
+        <ion-icon class="item-color" name="call" item-start></ion-icon>
+        {{place.place_formatted_number}}
+      </ion-item>
+
+      <ion-item *ngIf="place.place_website">
+        <ion-icon class="item-color" name="call" item-start></ion-icon>
+        {{place.place_website}}
+      </ion-item>
+
+      <ion-item text-wrap>
+        <ion-icon class="item-color" name="time" item-start></ion-icon>
+        {{place.place_status}}
+      </ion-item>
+
+    </ion-list>
+
+
+  </div>
+  <br/>
+  <div #contentMap [style.display]="show_place_photos ? 'block' : 'none'" class="place-map ion-card"></div>
+</ion-content>
+
+<ion-footer text-center *ngIf="place">
+
+  <ion-toolbar color="main-color" class="ion-card">
+    <!-- <ion-tabs>
+      <ion-tab tabIcon="navigate" tabTitle="DIRECTION" [root]="tab1"></ion-tab>
+      <ion-tab (ionSelect)="savePlace()" tabIcon="bookmark" tabTitle="SAVE" [root]="tab1"></ion-tab>
+      <ion-tab (ionSelect)="callPlace()" tabIcon="call" tabTitle="CALL" [root]="tab1"></ion-tab>
+      <ion-tab (ionSelect)="sharePlace()" tabIcon="share" tabTitle="SHARE PLACE" [root]="tab1"></ion-tab>
+    </ion-tabs> -->
+
+    <ion-row>
+
+      <ion-col text-center (click)="showDirection(place)">
+        <ion-icon name="navigate"></ion-icon>
+        <span class="icon">Direction</span>
+      </ion-col>
+      <ion-col text-center (click)="savePlace(place)">
+        <ion-icon name="bookmark"></ion-icon>
+        <span class="icon">Save</span>
+      </ion-col>
+
+      <ion-col text-center *ngIf="place.place_formatted_number">
+        <a href="tel:{{place.place_formatted_number}}">
+          <ion-icon name="call"></ion-icon>
+          <span class="icon">Call</span>
+        </a>
+      </ion-col>
+
+      <ion-col text-center (click)="sharePlace(place)">
+        <ion-icon name="share" class="icon"></ion-icon>
+        <span class="icon">Share</span>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+
+</ion-footer>

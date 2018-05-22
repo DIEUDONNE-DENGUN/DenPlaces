@@ -9,7 +9,7 @@
     <button ion-button menuToggle color="primary">
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Deplaces</ion-title>
+    <ion-title>Denplaces</ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content >
@@ -25,3 +25,57 @@
   </super-tabs>
 
 </ion-content>
+
+<!-- <ion-footer *ngIf="selected_place">
+
+  <ion-toolbar>
+
+      <ion-title>{{ selected_place.name }}</ion-title>
+        
+  </ion-toolbar>
+ 
+</ion-footer> -->
+
+<ion-footer  text-center  *ngIf="this.selected_place">
+  
+  <!--Fab Icon to show and hide Footer -->
+  <ion-fab right bottom edge *ngIf="showFooter" class="fab-icon">
+      <button (click)="handleFabEvent()" ion-fab color="main-color" mini><ion-icon style="color:#fff" name="arrow-down"></ion-icon></button>
+
+  </ion-fab>  
+  <ion-fab right bottom edge *ngIf="!showFooter"  class="fab-icon">
+      <button (click)="handleFabEvent()" ion-fab color="main-color"  mini><ion-icon style="color:#fff"  name="arrow-up"></ion-icon></button>
+
+  </ion-fab>    
+
+  <ion-toolbar color="main-color" class="ion-card" *ngIf="showFooter">
+     <ion-item class="item-selected">
+        <ion-avatar item-left>
+          <img class="footer-image" src="{{selected_place.place_url}}">
+        </ion-avatar>
+        <h3 class="segment-title" text-wrap>{{selected_place.place_name}}</h3>
+        <rating *ngIf="rating" [(ngModel)]="rating" 
+        readOnly="true" 
+        max="5" 
+        emptyStarIconName="star-outline" 
+        halfStarIconName="star-half" 
+        starIconName="star" 
+        nullable="true" 
+        >
+</rating>
+        <small><i text-wrap>{{selected_place.place_address}}, about {{selected_place.place_distance}}m from here</i></small>
+    </ion-item>
+      <br/>
+      <ion-buttons class="btns">
+          <button class="alert-default" left ion-button icon-only clear large (click)="showPlaceDetailsPage(selected_place)" padding margin-right>
+              <ion-icon name="list"></ion-icon>
+              MORE INFO
+          </button>
+      
+          <button class="alert-info" right ion-button icon-only clear large (click)="showDirectionPage(selected_place)" padding margin-left>
+              <ion-icon name="navigate"></ion-icon>
+              DIRECTIONS
+          </button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

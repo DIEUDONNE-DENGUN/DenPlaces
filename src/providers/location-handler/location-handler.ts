@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
-import { AlertController, ToastController, LoadingController } from 'ionic-angular';
+import { AlertController, ToastController, LoadingController, ActionSheetController } from 'ionic-angular';
+import { LocationAccuracy } from '@ionic-native/location-accuracy';
 
 @Injectable()
 export class LocationHandlerProvider {
@@ -9,7 +10,7 @@ export class LocationHandlerProvider {
   data: any;
   public loading: any;
 
-  constructor(public http: HttpClient, private alert: AlertController, private toast: ToastController, private loader: LoadingController) {
+  constructor(public http: HttpClient, public actionSheetCtrl: ActionSheetController,public location:LocationAccuracy,private alert: AlertController, private toast: ToastController, private loader: LoadingController) {
 
 
   }
@@ -81,6 +82,62 @@ export class LocationHandlerProvider {
   }
 
 
+  /*
+    @AUthor:Dieudonne Dengun
+    @Date:07/05/0218
+    @Description:prompt and enable user to enable location service
+
+  */
+ enableLocationService(): boolean{
+  let enabled=false;
+  let alert = this.alert.create({
+    title: 'To continue, please you will need to turn on your device location to enable Location Service',
+    message: '',
+    buttons: [
+      // {
+      //   text: 'Disagree',
+      //   role: 'cancel',
+      //   handler: () => {
+
+      //   }
+      // },
+      {
+        text: 'Turn On Now',
+        handler: () => {
+
+          //show loader
+          this.showLoader('Enabling location service, please wait...');
+          this.location.canRequest().then((canRequest: boolean) => {
+
+            if(canRequest) {
+              // the accuracy option will be ignored by iOS
+              this.location.request(this.location.REQUEST_PRIORITY_HIGH_ACCURACY).then(
+                () => {
+                  console.log('Request successful');
+                  enabled=true;
+                  this.closeLoader();
+                  return enabled;
+              
+              },
+                (error) =>{ 
+                  console.log('Error requesting location permissions', error);
+                
+                  
+                }
+              );
+            }
+          
+          });
+          
+        }
+ }
+],
+      });
+
+      alert.present();
+      
+      return enabled;
+    }     
   /*
     @Description:Filter an array of nearby places in order of closeness to the user current location
   */
@@ -166,4 +223,24 @@ export class LocationHandlerProvider {
   toRad(x) {
     return x * Math.PI / 180;
   }
+
+
+/*
+ @Author:Dieudonne Dengun
+ @Date:21/05/2018
+ @Description:Display actionsheet
+*/
+showActionSheeet(buttons: Array<any>) {
+  buttons.push({
+      icon:'close',
+      text: 'Cancel',
+      role: 'cancel',
+  });
+
+let actionSheet = this.actionSheetCtrl.create({
+      buttons: buttons
+  });
+
+actionSheet.present();
+}
 }
