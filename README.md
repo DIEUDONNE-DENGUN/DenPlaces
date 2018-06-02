@@ -31,6 +31,11 @@ Getting Started
 
    ![alt text](https://github.com/DIEUDONNE-DENGUN/Denplaces/blob/master/school-dialog.PNG?raw=true)
    ![alt text](https://github.com/DIEUDONNE-DENGUN/Denplaces/blob/master/school-den.PNG?raw=true)
+
+Place Details and Direction Components
+   ![alt text](https://github.com/DIEUDONNE-DENGUN/Denplaces/blob/master/deplace_home.PNG?raw=true)
+   ![alt text](https://github.com/DIEUDONNE-DENGUN/Denplaces/blob/master/den-details.PNG?raw=true)
+   ![alt text](https://github.com/DIEUDONNE-DENGUN/Denplaces/blob/master/den-direction.PNG?raw=true)
   
 
 Add additional notes about how to deploy this on a live system
