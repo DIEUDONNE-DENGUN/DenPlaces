@@ -21,9 +21,11 @@
     "@angular/http": "5.2.9",
     "@angular/platform-browser": "5.2.9",
     "@angular/platform-browser-dynamic": "5.2.9",
+    "@ionic-native/browser-tab": "^4.7.0",
     "@ionic-native/core": "4.6.0",
     "@ionic-native/diagnostic": "^4.7.0",
     "@ionic-native/geolocation": "^4.7.0",
+    "@ionic-native/in-app-browser": "^4.7.0",
     "@ionic-native/location-accuracy": "^4.7.0",
     "@ionic-native/network": "^4.7.0",
     "@ionic-native/social-sharing": "^4.7.0",
@@ -31,8 +33,11 @@
     "@ionic-native/status-bar": "4.3.1",
     "@ionic/storage": "2.1.3",
     "cordova-android": "~7.0.0",
+    "cordova-plugin-browsertab": "^0.2.0",
+    "cordova-plugin-compat": "^1.2.0",
     "cordova-plugin-device": "^2.0.1",
     "cordova-plugin-geolocation": "^4.0.1",
+    "cordova-plugin-inappbrowser": "^3.0.0",
     "cordova-plugin-ionic-keyboard": "^2.0.5",
     "cordova-plugin-ionic-webview": "^1.2.0",
     "cordova-plugin-network-information": "^2.0.1",
@@ -66,7 +71,9 @@
       "cordova-plugin-ionic-keyboard": {},
       "cordova.plugins.diagnostic": {},
       "cordova-plugin-request-location-accuracy": {},
-      "cordova-plugin-x-socialsharing": {}
+      "cordova-plugin-x-socialsharing": {},
+      "cordova-plugin-browsertab": {},
+      "cordova-plugin-inappbrowser": {}
     },
     "platforms": [
       "android"

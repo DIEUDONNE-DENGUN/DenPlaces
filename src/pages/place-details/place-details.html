@@ -68,7 +68,7 @@
         {{place.place_formatted_number}}
       </ion-item>
 
-      <ion-item *ngIf="place.place_website">
+      <ion-item *ngIf="place.place_website" (click)="openPlaceWebsite(place.place_website)"> 
         <ion-icon class="item-color" name="call" item-start></ion-icon>
         {{place.place_website}}
       </ion-item>

@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ConnectionListernerProvider } from '../../providers/connection-listerner/connection-listerner';
 import { LocationHandlerProvider } from '../../providers/location-handler/location-handler';
 import { SocialSharing } from '@ionic-native/social-sharing';
+import { BrowserTab } from '@ionic-native/browser-tab';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 
 declare var google;
@@ -25,7 +27,7 @@ export class PlaceDetailsPage {
   show_place_photos: boolean = false; //determine if the place photos sliders be shown or not
   show_place_map: boolean = false; //determine if the current place location be displayed on map 
   place_photos: any;
-  constructor(public navCtrl: NavController,public social_sharing: SocialSharing,public location_handler:LocationHandlerProvider,public navParams: NavParams, public connectionListerner:ConnectionListernerProvider) {
+  constructor(public navCtrl: NavController,public browserTab:BrowserTab,public iab:InAppBrowser,public social_sharing: SocialSharing,public location_handler:LocationHandlerProvider,public navParams: NavParams, public connectionListerner:ConnectionListernerProvider) {
 
     let place = navParams.get('place');
 
@@ -295,5 +297,38 @@ addConnectivityListeners() {
 showDirection(place:any){
 
    this.navCtrl.push('PlaceDirectionPage',{direction:place});
+}
+
+/*
+  @Author:Dieudonne Dengun
+  @Date: 02/06/2018
+  @Description:Open a selected place website 
+*/
+openPlaceWebsite(url:string){
+   //open url from the browser's service
+    
+  this.browserTab.isAvailable()
+  .then((isAvailable: boolean) => {
+
+    //check if browsertab is supported or available for the device
+    if (isAvailable) {
+      
+      this.browserTab.openUrl(url).then(success => {
+
+        if (success) {
+          //this means the browser was successfully open
+        }
+      });
+
+    } else {
+
+      // open URL with InAppBrowser instead since browsertab not available
+      
+      this.iab.create(url, "_system", "location=true");
+
+
+    }
+
+  });
 }
 }

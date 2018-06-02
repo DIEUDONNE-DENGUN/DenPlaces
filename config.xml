@@ -90,4 +90,6 @@
     <plugin name="cordova-plugin-request-location-accuracy" spec="^2.2.2" />
     <plugin name="cordova-plugin-x-socialsharing" spec="^5.4.0" />
     <engine name="android" spec="~7.0.0" />
+    <plugin name="cordova-plugin-browsertab" spec="^0.2.0" />
+    <plugin name="cordova-plugin-inappbrowser" spec="^3.0.0" />
 </widget>

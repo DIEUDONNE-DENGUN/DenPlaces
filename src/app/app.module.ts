@@ -14,6 +14,8 @@ import { Network } from '@ionic-native/network';
 import { Geolocation } from '@ionic-native/geolocation';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { SocialSharing } from '@ionic-native/social-sharing';
+import { BrowserTab } from '@ionic-native/browser-tab';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { SuperTabsModule } from 'ionic2-super-tabs';
 import { ConnectionListernerProvider } from '../providers/connection-listerner/connection-listerner';
 import { GoogleMapHandlerProvider } from '../providers/google-map-handler/google-map-handler';
@@ -56,6 +58,8 @@ import { SharedModule } from './shared.module';
     Network,
     Geolocation,
     SocialSharing,
+    BrowserTab,
+    InAppBrowser,
   ]
 })
 export class AppModule {}

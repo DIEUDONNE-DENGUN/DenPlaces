@@ -5,11 +5,11 @@ page-place-details {
   }
   .slider-banner {
     height: 200px;
-    max-height: 250px;
+    max-height: 300px;
     margin-bottom: 10px;
   }
   .slider-image {
-    max-height: 250px;
+    max-height: 300px;
     width: 100%;
   }
   .icon{
@@ -37,21 +37,24 @@ page-place-details {
 		}
 		&.selected *{color:color($colors, light, base)!important}
     }
+   
+ul {
+  padding: 0px;
+  margin: -1px;
+  background:#FF3D00 ;
+ 
+  &.rating li {
+  //   padding: 5px 10px !important;
+    background:#FF3D00;
+    color: blue;
+
+     
+    ion-icon {
+      font-size: 15px;
+    }
+  }
+} 
     
-    ul {
-        padding: 0px;
-        margin: -1px;
-      
-        &.rating li {
-        //   padding: 5px 10px !important;
-          background: none;
-          color: #ffb400;
-           
-          ion-icon {
-            font-size: 15px;
-          }
-        }
-      }
   
 }
 
