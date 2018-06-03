@@ -30,7 +30,7 @@ export class SupermarketPage {
   current_location_object: any;
   show_map :boolean=true;
   current_window=null;
-
+  offline_dialog:boolean=true;
   constructor(public navCtrl: NavController,  public location_handler: LocationHandlerProvider,public navParams: NavParams, public geolocation: Geolocation, public connectivityService: ConnectionListernerProvider) {
   }
 
@@ -175,8 +175,14 @@ export class SupermarketPage {
   */
   disableMap() {
     
-    let title="Offline Status";
-    let message="You are currently offline.Please connect to the internet to continue";
+    if(this.offline_dialog){
+
+    }else{
+      this.offline_dialog=true;
+      let title = "Offline Status";
+      let message = "You are currently offline.Please connect to the internet to continue";
+      this.location_handler.showSimpleAlertDialog(title, message);
+    }
     // this.location_handler.showSimpleAlertDialog(title,message);
   }
 

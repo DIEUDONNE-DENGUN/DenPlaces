@@ -29,6 +29,7 @@ export class RestaurantsPage {
   show_map: boolean = true;
   current_window = null;
   selected_place = null;
+  offline_dialog:boolean=false;
   constructor(public navCtrl: NavController, public platform: Platform, public diagnostic: Diagnostic, public location_handler: LocationHandlerProvider, public geolocation: Geolocation, public navParams: NavParams, public connectivityService: ConnectionListernerProvider) {
   }
 
@@ -36,44 +37,44 @@ export class RestaurantsPage {
     //start loadinf animation
     this.location_handler.showLoader("Loading nearby restaurants....");
 
-    this.renderNearbyServices();
+    //this.renderNearbyServices();
     //check if the user has a enabled location service on
-    // this.platform.ready().then((readySource) => {
+    this.platform.ready().then((readySource) => {
 
-    //   this.diagnostic.isLocationEnabled().then(
-    //   (isAvailable) => {
+      this.diagnostic.isLocationEnabled().then(
+      (isAvailable) => {
 
-    //    //check if enabled
-    //    if(isAvailable){
+       //check if enabled
+       if(isAvailable){
 
-    //        //render the map and nearby services
-    //        this.renderNearbyServices();
-    //    }else{
+           //render the map and nearby services
+           this.renderNearbyServices();
+       }else{
 
-    //      this.location_handler.closeLoader();
-
-
-    //     //prompt the user to enable the location services
-    //     let location_state=this.location_handler.enableLocationService();
-    //     setTimeout(() => {
-    //       this.location_handler.showLoader("Loading nearby restaurants....");  
-    //       //render the map and nearby services
-    //       this.renderNearbyServices();
-    //     }, 10000);
-    //     if(location_state){
+         this.location_handler.closeLoader();
 
 
-    //     }
-    //    }
-    //   }).catch( (e) => {
+        //prompt the user to enable the location services
+        let location_state=this.location_handler.enableLocationService();
+        setTimeout(() => {
+          this.location_handler.showLoader("Loading nearby restaurants....");  
+          //render the map and nearby services
+          this.renderNearbyServices();
+        }, 10000);
+        if(location_state){
 
-    //       console.log(e);
-    //       this.location_handler.closeLoader();
-    //       this.location_handler.showToastMessage("Unable to check your location setting. Please enable your location, close and try again");
-    //   });
+
+        }
+       }
+      }).catch( (e) => {
+
+          console.log(e);
+          this.location_handler.closeLoader();
+          this.location_handler.showToastMessage("Unable to check your location setting. Please enable your location, close and try again");
+      });
 
 
-    //   });
+      });
 
 
   }
@@ -231,10 +232,15 @@ export class RestaurantsPage {
     @Description:Disable the display map if there is no internet and alert user of network change
   */
   disableMap() {
+    if(this.offline_dialog){
 
-    let title = "Offline Status";
-    let message = "You are currently offline.Please connect to the internet to continue";
-    this.location_handler.showSimpleAlertDialog(title, message);
+    }else{
+      this.offline_dialog=true;
+      let title = "Offline Status";
+      let message = "You are currently offline.Please connect to the internet to continue";
+      this.location_handler.showSimpleAlertDialog(title, message);
+    }
+ 
   }
 
   /*
